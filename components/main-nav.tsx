@@ -13,10 +13,25 @@ export function MainNav({
 
     const routes = [
         {
+            href: `/${params.storeId}`,
+            label: "Overview",
+            active: pathname === `/${params.storeId}`,
+        },
+        {
+            href: `/${params.storeId}/billboards`,
+            label: "Billboards",
+            active: pathname === `/${params.storeId}/billboards`,
+        },
+        {
+            href: `/${params.storeId}/categories`,
+            label: "Categories",
+            active: pathname === `/${params.storeId}/categories`,
+        },
+        {
             href: `/${params.storeId}/settings`,
             label: "Settings",
             active: pathname === `/${params.storeId}/settings`,
-        }
+        },
     ];
 
     return (
@@ -27,7 +42,7 @@ export function MainNav({
                 href={route.href}
                 className={cn(
                     "text-sm font-medium transition-colors hover:text-primary",
-                    route.active ? "text-black dark: text-white": "text-muted-foreground"
+                    route.active ? "text-black dark:text-white": "text-muted-foreground"
                 )}
             >
                 {route.label}
