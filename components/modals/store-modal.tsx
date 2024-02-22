@@ -12,7 +12,6 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { Input } from "../ui/input";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { redirect } from "next/navigation";
 
 const formSchema = z.object({
     name: z.string().min(1),
