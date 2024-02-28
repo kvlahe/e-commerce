@@ -139,7 +139,7 @@ export async function PATCH(
 
 export async function DELETE(
     req: Request,
-    { params }: { params: { productId: string, prodcutId: string } }
+    { params }: { params: { productId: string, storeId: string } }
 ) {
     try {
         const { userId } = auth();
@@ -154,7 +154,7 @@ export async function DELETE(
 
         const storeByUserId = await prismadb.store.findFirst({
             where: {
-                id: params.productId,
+                id: params.storeId,
                 userId
             }
         })
