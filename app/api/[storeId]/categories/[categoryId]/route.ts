@@ -33,7 +33,7 @@ export async function GET(
 
 export async function PATCH(
     req: Request,
-    { params }: { params: { storeId: string, categoryId: string } }
+    { params }: { params: { storeid: string, categoryId: string } }
 ) {
     try {
         const { userId } = auth();
@@ -60,7 +60,7 @@ export async function PATCH(
 
         const storeByUserId = await prismadb.store.findFirst({
             where: {
-                id: params.storeId,
+                id: params.storeid,
                 userId
             }
         })
@@ -89,7 +89,7 @@ export async function PATCH(
 
 export async function DELETE(
     req: Request,
-    { params }: { params: { categoryId: string, storeId: string } }
+    { params }: { params: { categoryId: string, storeid: string } }
 ) {
     try {
         const { userId } = auth();
@@ -104,7 +104,7 @@ export async function DELETE(
 
         const storeByUserId = await prismadb.store.findFirst({
             where: {
-                id: params.storeId,
+                id: params.storeid,
                 userId
             }
         })

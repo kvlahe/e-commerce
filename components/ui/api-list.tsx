@@ -17,7 +17,7 @@ export const ApiList: React.FC<ApiListProps> = ({
     const params = useParams();
     const origin = useOrigin();   
 
-    const baseURL = `${origin}/api/${params.storeId}`;
+    const baseURL = `${origin}/api/${params.storeid}`;
 
     return (
         <div>

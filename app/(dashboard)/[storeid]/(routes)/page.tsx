@@ -11,14 +11,14 @@ import { formatter } from "@/lib/utils"
 import { CreditCard, DollarSign, Package } from "lucide-react"
 
 interface DashboardPageProps {
-    params: { storeId: string }
+    params: { storeid: string }
 };
 
 const DashboardPage: React.FC<DashboardPageProps> = async ({ params }) => {
-    const totalRevenue = await getTotalRevenue(params.storeId);
-    const salesCount = await getSalesCount(params.storeId);
-    const stockCount = await getStockCount(params.storeId);
-    const graphRevenue = await getGraphRevenue(params.storeId);
+    const totalRevenue = await getTotalRevenue(params.storeid);
+    const salesCount = await getSalesCount(params.storeid);
+    const stockCount = await getStockCount(params.storeid);
+    const graphRevenue = await getGraphRevenue(params.storeid);
     return (
         <div className="flex-col">
             <div className="flex-1 space-y-4 p-8 pt-6">

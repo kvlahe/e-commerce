@@ -7,11 +7,11 @@ import { CategoryColumn } from "./components/columns";
 const CategoriesPage = async ({
   params
 }: {
-  params: { storeId: string }
+  params: { storeid: string }
 }) => {
   const categories = await prismadb.category.findMany({
     where: {
-      storeId: params.storeId
+      storeid: params.storeid
     },
     include: {
       billboard: true

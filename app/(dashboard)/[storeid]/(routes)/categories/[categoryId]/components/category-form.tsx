@@ -64,11 +64,11 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
         try {
             setLoading(true);
             if (initialData) {
-                await axios.patch(`/api/${params.storeId}/categories/${params.categoryId}`, data);
+                await axios.patch(`/api/${params.storeid}/categories/${params.categoryId}`, data);
             } else {
-                await axios.post(`/api/${params.storeId}/categories`, data);
+                await axios.post(`/api/${params.storeid}/categories`, data);
             }
-            router.push(`/${params.storeId}/categories`);
+            router.push(`/${params.storeid}/categories`);
             router.refresh();
             toast.success(toastMessage);
         } catch (error: any) {
@@ -81,8 +81,8 @@ export const CategoryForm: React.FC<CategoryFormProps> = ({
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/categories/${params.categoryId}`);
-            router.push(`/${params.storeId}/categories`);
+            await axios.delete(`/api/${params.storeid}/categories/${params.categoryId}`);
+            router.push(`/${params.storeid}/categories`);
             router.refresh();
             toast.success('Category deleted.');
         } catch (error: any) {

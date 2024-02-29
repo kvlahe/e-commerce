@@ -8,11 +8,11 @@ import { formatter } from '@/lib/utils';
 const OrdersPage = async ({
   params
 }: {
-  params: { storeId: string }
+  params: { storeid: string }
 }) => {
   const orders = await prismadb.order.findMany({
     where: {
-      storeId: params.storeId
+      storeid: params.storeid
     },
     include: {
       orderItems: {

@@ -62,11 +62,11 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
         try {
             setLoading(true);
             if (initialData) {
-                await axios.patch(`/api/${params.storeId}/billboards/${params.billboardId}`, data);
+                await axios.patch(`/api/${params.storeid}/billboards/${params.billboardId}`, data);
             } else {
-                await axios.post(`/api/${params.storeId}/billboards`, data);
+                await axios.post(`/api/${params.storeid}/billboards`, data);
             }
-            router.push(`/${params.storeId}/billboards`);
+            router.push(`/${params.storeid}/billboards`);
             router.refresh();
             toast.success(toastMessage);
         } catch (error: any) {
@@ -79,9 +79,9 @@ export const BillboardForm: React.FC<BillboardFormProps> = ({
     const onDelete = async () => {
         try {
             setLoading(true);
-            await axios.delete(`/api/${params.storeId}/billboards/${params.billboardId}`);
+            await axios.delete(`/api/${params.storeid}/billboards/${params.billboardId}`);
             router.refresh();
-            router.push(`/${params.storeId}/billboards`);
+            router.push(`/${params.storeid}/billboards`);
             toast.success('Billboard deleted.');
         } catch (error: any) {
             toast.error('Make sure you removed all categories using this billboard first.');

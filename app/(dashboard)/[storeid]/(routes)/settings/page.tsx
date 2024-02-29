@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { SettingsForm } from "./components/settings-form";
 
 interface SettingsPageProps {
-    params: { storeId: string }
+    params: { storeid: string }
 }
 
 const SettingsPage: React.FC<SettingsPageProps> = async ({
@@ -18,7 +18,7 @@ const SettingsPage: React.FC<SettingsPageProps> = async ({
 
     const store = await prismadb.store.findFirst({
         where: {
-            id: params.storeId,
+            id: params.storeid,
             userId
         }
     })

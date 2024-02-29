@@ -25,7 +25,7 @@ export const CategoryClient: React.FC<CategoryClientProps> = ({
                 title={`Categories (${data.length})`}
                 description="Manage your store categories."
                 />
-                <Button onClick={() => router.push(`/${params.storeId}/categories/new`)}>
+                <Button onClick={() => router.push(`/${params.storeid}/categories/new`)}>
                     <Plus className="mr-2 h-4 w-4"/>
                     Add New
                 </Button>

@@ -4,7 +4,7 @@ import prismadb from "@/lib/prismadb";
 
 export async function POST(
     req: Request,
-    { params }: { params: { storeId: string } }
+    { params }: { params: { storeid: string } }
 ) {
     try {
         const { userId } = auth()
@@ -24,7 +24,7 @@ export async function POST(
             return new NextResponse("Value is required", { status: 400 })
         }
 
-        if (!params.storeId) {
+        if (!params.storeid) {
             return new NextResponse("Store ID is required", { status: 400 })
         }
 
@@ -32,13 +32,13 @@ export async function POST(
             data: {
                 name,
                 value,
-                storeId: params.storeId,
+                storeid: params.storeid,
             }
         });
 
         const storeByUserId = await prismadb.store.findFirst({
             where: {
-                id: params.storeId,
+                id: params.storeid,
                 userId
             }
         })
@@ -56,17 +56,17 @@ export async function POST(
 
 export async function GET(
     req: Request,
-    { params }: { params: { storeId: string } }
+    { params }: { params: { storeid: string } }
 ) {
     try {
 
-        if (!params.storeId) {
+        if (!params.storeid) {
             return new NextResponse("Store ID is required", { status: 400 })
         }
 
         const colors = await prismadb.color.findMany({
             where:{
-                storeId: params.storeId
+                storeid: params.storeid
             }
         });
 
